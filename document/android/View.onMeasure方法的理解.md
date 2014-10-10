@@ -38,7 +38,7 @@ java代码：
     如果是UNSPECIFIED，对于控件尺寸来说，没有任何参考意义。
     
     
-    ### 2、那么这些模式和我们平时设置的layout参数fill_parent, wrap_content有什么关系呢？
+### 2、那么这些模式和我们平时设置的layout参数fill_parent, wrap_content有什么关系呢？
     当设置width或height为fill_parent时，容器在布局时调用子 view的measure方法传入的模式是EXACTLY，因为子view会占据剩余容器的空间，所以它大小是确定的。
     当设置为 wrap_content时，容器传进去的是AT_MOST, 表示子view的大小最多是多少，这样子view会根据这个上限来设置自己的尺寸。当子view的大小设置为精确值时，容器传入的是EXACTLY, 而MeasureSpec的UNSPECIFIED模式目前还没有发现在什么情况下使用。 
     View的onMeasure方法默认行为是当模式为UNSPECIFIED时，设置尺寸为mMinWidth(通常为0)或者背景drawable的最小尺寸，当模式为EXACTLY或者AT_MOST时，尺寸设置为传入的MeasureSpec的大小。 
