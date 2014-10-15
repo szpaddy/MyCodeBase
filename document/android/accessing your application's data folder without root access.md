@@ -18,3 +18,12 @@ shared_prefs
 rm databases/mydatabase.db
 
 Interactive mode will drop you into the data folder for your app. You can navigate from there.
+
+
+
+adb shell
+run-as com.paddy.mynotes
+cat databases/notes.db > /mnt/sdcard/notes.db3
+
+adb pull /mnt/sdcard/notes.db3 c:\
+
